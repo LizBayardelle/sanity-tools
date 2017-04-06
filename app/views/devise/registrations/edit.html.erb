@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-center">Edit My Information</h1>
+    <h1 class="text-center page-title">Edit My Information</h1>
 
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
@@ -45,21 +45,21 @@
             </div>
 
             <div class="problems-area row">
-                <h3 style="margin-top: 0">Which of the following describe(s) you?</h3>
+                <h3 style="margin-top: 0">What would you like to be?</h3>
                 <div class="col-sm-4">
-                    <%= f.input :busy, label: "Too Busy" %>
-                    <%= f.input :stressed, label: "Stressed" %>
-                    <%= f.input :depressed, label: "Depressed" %>
+                    <%= f.input :less_busy, label: "Less Busy" %>
+                    <%= f.input :less_stressed, label: "Less Stressed" %>
+                    <%= f.input :happier, label: "Happier" %>
                 </div>
                 <div class="col-sm-4">
-                    <%= f.input :anxious, label: "Anxious" %>
-                    <%= f.input :panicked, label: "Panic Attacks" %>
-                    <%= f.input :lethargic, label: "Lethargic/Unmotivated" %>
+                    <%= f.input :more_relaxed, label: "More Relaxed" %>
+                    <%= f.input :less_panicked, label: "Less Panicky" %>
+                    <%= f.input :more_motivated, label: "More Motivated" %>
                 </div>
                 <div class="col-sm-4">
-                    <%= f.input :worried, label: "Worried" %>
-                    <%= f.input :indecisive, label: "Indecisive" %>
-                    <%= f.input :other_feels, label: "Other" %>
+                    <%= f.input :less_worried, label: "Less Worried" %>
+                    <%= f.input :more_organized, label: "Organized" %>
+                    <%= f.input :other, label: "Other" %>
                 </div>
             </div> <!-- problems area -->
 

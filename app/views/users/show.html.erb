@@ -1,5 +1,17 @@
 <div class="container">
-	<h1 class="text-center"><%= @user.first_name %>'s Dashboard</h1>
-	<h4 class="text-center"><%= link_to "Edit My Info", edit_user_registration_path %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></h4>
+	<div class="text-center">
+		<h1 class="page-title"><%= @user.first_name %>'s Dashboard</h1>
+		<h4>I'm on my way to being 
+			<% if @user.less_stressed %>less stressed, <% end %>
+			<% if @user.happier %>happier, <% end %>
+			<% if @user.more_relaxed %>more relaxed, <% end %>
+			<% if @user.less_panicked %>less panicked, <% end %>
+			<% if @user.more_motivated %>more motivated, <% end %>
+			<% if @user.less_worried %>less worried, <% end %>
+			<% if @user.more_organized %>more organized, <% end %>
+			and&nbsp;I'm&nbsp;sure&nbsp;I'll&nbsp;be&nbsp;there&nbsp;soon.
+		</h4>
+		<h4><%= link_to "Edit My Info", edit_user_registration_path %> | <%= link_to('Logout', destroy_user_session_path, :method => :delete) %></h4>
+	</div> <!-- centered header -->
 	
 </div>

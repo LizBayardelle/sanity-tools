@@ -1,0 +1,27 @@
+<%= simple_form_for(@tool) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="form-group">
+      <%= f.label "Name of New Tool" %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div> <!-- form group -->
+    <%= f.input :subtitle %>
+    <%= f.input :description %>
+    <%= f.input :less_busy %>
+    <%= f.input :less_stressed %>
+    <%= f.input :happier %>
+    <%= f.input :more_relaxed %>
+    <%= f.input :less_panicked %>
+    <%= f.input :more_motivated %>
+    <%= f.input :less_worried %>
+    <%= f.input :more_organized %>
+    <%= f.input :other %>
+    <%= f.input :subscribers_only %>
+    <%= f.input :find_by_name %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

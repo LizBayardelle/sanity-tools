@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404184741) do
+ActiveRecord::Schema.define(version: 20170406190902) do
+
+  create_table "tools", force: :cascade do |t|
+    t.string   "name"
+    t.string   "subtitle"
+    t.string   "description"
+    t.boolean  "less_busy",        default: false
+    t.boolean  "less_stressed",    default: false
+    t.boolean  "happier",          default: false
+    t.boolean  "more_relaxed",     default: false
+    t.boolean  "less_panicked",    default: false
+    t.boolean  "more_motivated",   default: false
+    t.boolean  "less_worried",     default: false
+    t.boolean  "more_organized",   default: false
+    t.boolean  "other",            default: false
+    t.boolean  "subscribers_only", default: false
+    t.string   "find_by_name"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -28,15 +47,15 @@ ActiveRecord::Schema.define(version: 20170404184741) do
     t.datetime "updated_at",                             null: false
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "busy",                   default: false
-    t.boolean  "stressed",               default: false
-    t.boolean  "depressed",              default: false
-    t.boolean  "anxious",                default: false
-    t.boolean  "panicked",               default: false
-    t.boolean  "lethargic",              default: false
-    t.boolean  "worried",                default: false
-    t.boolean  "indecisive",             default: false
-    t.boolean  "other_feels",            default: false
+    t.boolean  "less_busy",              default: false
+    t.boolean  "less_stressed",          default: false
+    t.boolean  "happier",                default: false
+    t.boolean  "more_relaxed",           default: false
+    t.boolean  "less_panicked",          default: false
+    t.boolean  "more_motivated",         default: false
+    t.boolean  "less_worried",           default: false
+    t.boolean  "more_organized",         default: false
+    t.boolean  "other",                  default: false
     t.boolean  "opt_in",                 default: false
   end
 

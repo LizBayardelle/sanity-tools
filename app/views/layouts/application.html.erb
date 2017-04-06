@@ -12,7 +12,9 @@
 
 <body>
 
-                
+<div class="non-footer">
+
+<%= image_tag "paper.jpg", class: "bg" %>                
 
 <!-- MENU GOES HERE -->
 <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
@@ -25,9 +27,9 @@
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Home", root_path %></li>
-                <li><a href="/products">Products</a></li>
+                <li><%= link_to "Tools", tools_path %></li>
+                <li><a href="/contact">Recommend a Tool</a></li>
                 <li><a href="/about-us">About Us</a></li>
-                <li><a href="/contact">Contact Us</a></li>
                 <% if current_user %>
                 	<li><%= link_to "Dashboard", user_path(current_user) %></li>
                 <% else %>
@@ -62,7 +64,8 @@
 
   
 <%= yield %>
-
+ 
+</div> <!-- non-footer -->
 <footer>
   <div class="container text-center">
     <h1>Sanity Tools</h1>

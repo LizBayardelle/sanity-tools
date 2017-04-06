@@ -1,5 +1,5 @@
 <div class="container">
-	<h1 class="text-center">Create an Account</h1>
+	<h1 class="text-center page-title">Create an Account</h1>
 	<h3 class="text-center"><%= link_to('Already have an account?', new_user_session_path)  %></h3>
 
 	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -33,24 +33,24 @@
 			<hr class="col-xs-6 col-xs-push-3" style="margin: 30px 0 30px 0">
 		</div>
 
-		<div class="problems-area row">
-		    <h3 style="margin-top: 0">Which of the following describe(s) you?</h3>
-	    	<div class="col-sm-4">
-			    <%= f.input :busy, label: "Too Busy" %>
-			    <%= f.input :stressed, label: "Stressed" %>
-			    <%= f.input :depressed, label: "Depressed" %>
-		    </div>
-		    <div class="col-sm-4">
-			    <%= f.input :anxious, label: "Anxious" %>
-			    <%= f.input :panicked, label: "Panic Attacks" %>
-			    <%= f.input :lethargic, label: "Lethargic/Unmotivated" %>
-		    </div>
-		    <div class="col-sm-4">
-			    <%= f.input :worried, label: "Worried" %>
-			    <%= f.input :indecisive, label: "Indecisive" %>
-			    <%= f.input :other_feels, label: "Other" %>
-		    </div>
-	    </div> <!-- problems area -->
+            <div class="problems-area row">
+                <h3 style="margin-top: 0">What would you like to be?</h3>
+                <div class="col-sm-4">
+                    <%= f.input :less_busy, label: "Less Busy" %>
+                    <%= f.input :less_stressed, label: "Less Stressed" %>
+                    <%= f.input :happier, label: "Happier" %>
+                </div>
+                <div class="col-sm-4">
+                    <%= f.input :more_relaxed, label: "More Relaxed" %>
+                    <%= f.input :less_panicked, label: "Less Panicky" %>
+                    <%= f.input :more_motivated, label: "More Motivated" %>
+                </div>
+                <div class="col-sm-4">
+                    <%= f.input :less_worried, label: "Less Worried" %>
+                    <%= f.input :more_organized, label: "Organized" %>
+                    <%= f.input :other, label: "Other" %>
+                </div>
+            </div> <!-- problems area -->
 
 		<div class="row">
 			<hr class="col-xs-6 col-xs-push-3">
@@ -64,5 +64,6 @@
 	    </div>
 	<% end %>
 
+<div class="bottom-buffer-clear"></div>
 	
 </div> <!-- container -->
