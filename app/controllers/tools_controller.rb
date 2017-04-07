@@ -1,5 +1,6 @@
 class ToolsController < ApplicationController
   before_action :set_tool, only: [:show, :edit, :update, :destroy]
+  before_action :admin_only, only: [:edit, :update, :new, :create, :destroy]
 
   # GET /tools
   def index
@@ -53,6 +54,6 @@ class ToolsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def tool_params
-      params.require(:tool).permit(:name, :subtitle, :description, :less_busy, :less_stressed, :happier, :more_relaxed, :less_panicked, :more_motivated, :less_worried, :more_organized, :other, :subscribers_only, :model_name)
+      params.require(:tool).permit(:name, :subtitle, :description, :less_busy, :less_stressed, :happier, :more_relaxed, :less_panicked, :more_motivated, :less_worried, :more_organized, :other, :subscribers_only, :find_by_name)
     end
 end

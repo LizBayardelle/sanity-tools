@@ -1,27 +1,56 @@
 <%= simple_form_for(@tool) do |f| %>
-  <%= f.error_notification %>
+	<%= f.error_notification %>
 
-  <div class="form-inputs">
-    <div class="form-group">
-      <%= f.label "Name of New Tool" %>
-      <%= f.text_field :name, class: "form-control" %>
-    </div> <!-- form group -->
-    <%= f.input :subtitle %>
-    <%= f.input :description %>
-    <%= f.input :less_busy %>
-    <%= f.input :less_stressed %>
-    <%= f.input :happier %>
-    <%= f.input :more_relaxed %>
-    <%= f.input :less_panicked %>
-    <%= f.input :more_motivated %>
-    <%= f.input :less_worried %>
-    <%= f.input :more_organized %>
-    <%= f.input :other %>
-    <%= f.input :subscribers_only %>
-    <%= f.input :find_by_name %>
-  </div>
+	<div class="form-inputs">
+		<div class="form-group col-sm-8 col-xs-12">
+			<%= f.label "Name of New Tool" %>
+			<%= f.text_field :name, class: "form-control" %>
+		</div> <!-- form group -->
+		<div class="form-group col-sm-4 col-xs-12">
+			<%= f.label "Find Tool By Name" %>
+			<%= f.text_field :find_by_name, class: "form-control" %>
+		</div> <!-- form group -->
+		<div class="form-group col-xs-12">
+			<%= f.label :subtitle %>
+			<%= f.text_field :subtitle, class: "form-control" %>
+		</div> <!-- form group -->
+		<div class="form-group col-xs-12">
+			<%= f.label :description %>
+			<%= f.text_area :description, class: "form-control" %>
+		</div> <!-- form group -->
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+		<div class="row">
+			<hr class="col-xs-6 col-xs-push-3" />
+		</div>
+
+		<div class="form-group problems-area">
+			<h4>Which problems does this tool address?</h4>
+			<div class="row">
+				<div class="col-sm-4">
+					<%= f.input :less_busy %>
+					<%= f.input :less_stressed %>
+					<%= f.input :happier %>
+				</div> <!-- col -->
+				<div class="col-sm-4">
+					<%= f.input :more_relaxed %>
+					<%= f.input :less_panicked %>
+					<%= f.input :more_motivated %>
+				</div> <!-- col -->
+				<div class="col-sm-4">
+					<%= f.input :less_worried %>
+					<%= f.input :more_organized %>
+					<%= f.input :other %>
+				</div> <!-- col -->
+			</div> <!-- row -->
+		</div> <!-- form group -->
+	</div> <!-- form inputs -->
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3" />
+	</div>
+
+	<div class="form-actions text-center">
+		<%= f.input :subscribers_only %>
+		<%= f.button :submit %>
+	</div>
 <% end %>

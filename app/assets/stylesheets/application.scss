@@ -36,9 +36,11 @@ $blue-light: #2374AB;
 $blue-green: #4DCCBD;
 $grey-dark: #4F5356;
 $grey-light: #B2B2B2;
+$color-red: #F08080;
 $text-shadow: 1px 2px 2px #4DCCBD;
 
-
+.color-red { color: $color-red; }
+.color-green { color: $blue-green; }
 
 
 
@@ -65,7 +67,7 @@ a { color: $blue-light; }
 .container { position: relative; }
 .bottom-buffer-clear { width: 100%; height: 50px; }
 .bottom-buffer-white { width: 100%; height: 50px; background-color: white}
-hr { border-width: 2px; border-color: $blue-green }
+hr { border-width: 1px; border-color: $blue-green }
 
 .non-footer { min-height: calc(100vh - 250px) }
 
@@ -145,7 +147,7 @@ input[type="color"]:focus,
 }
 
 .alert-warning, .alert-danger {
-	border-color: #F08080;
+	border-color: $color-red;
 }
 
 .alert button {
@@ -155,11 +157,10 @@ input[type="color"]:focus,
 
 /* CARDS */
 .card {
-	height: 250px;
 	background-color: white;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 	position: relative;
-	padding: 15px;
+	padding: 15px 15px 80px 15px;
 }
 
 .card:hover {
@@ -189,7 +190,6 @@ input[type="color"]:focus,
 @media screen and (max-width: 768px) {
 	.card {
 		height: auto;
-		padding: 15px 15px 80px 15px;
 	}
 
 	.card .btn-div {
@@ -238,18 +238,18 @@ Main Nav
     color: rgba(85, 85, 85, 1);
 }
 #main-nav.navbar-default .navbar-toggle {
-    border-color: #ffffff;
+    border-color: $blue-dark;
 }
 #main-nav.navbar-default .navbar-toggle:hover,
 #main-nav.navbar-default .navbar-toggle:focus {
     background-color: #ffffff;
 }
 #main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: #ffffff;
+    background-color: $blue-green;
 }
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
-    background-color: #ffffff;
+    background-color: $blue-dark;
 }
 
 
@@ -378,6 +378,49 @@ img.bg {
     margin-left: -512px;   /* 50% */
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Tools
+==============================================
+*/
+
+.bubble {
+	background-color: $blue-light;
+	border-radius: 15px;
+	color: white;
+	font-weight: 900;
+	width: auto;
+	display: inline-block;
+	padding: 5px 10px 5px 10px;
+	margin: 0 3px 0 3px;
+}
+
+.bubble.red {
+	background-color: $color-red;
+}
+
+.tool-container {
+	margin: 30px 0 30px 0;
+}
+
+
+
+
+
+
+
 
 
 

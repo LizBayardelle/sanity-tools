@@ -1,74 +1,21 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Name:</strong>
-  <%= @tool.name %>
-</p>
+    <div class="header text-center row">
+        <h1 class="page-title"><%= @tool.name %></h1>
+        <h2><%= @tool.subtitle %></h2>
+        <div class="col-sm-8 col-sm-push-2 col-sm-push-2 col-md-push-3">
+            <p><%= @tool.description %></p>
+            <%= render "tags" %>
+        </div> <!-- col -->
+    </div> <!-- header -->
 
-<p>
-  <strong>Subtitle:</strong>
-  <%= @tool.subtitle %>
-</p>
+    <%= render @tool.find_by_name %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @tool.description %>
-</p>
+    <div class="links text-center">
+        <% if current_user && current_user.admin %>
+            <%= link_to 'Edit', edit_tool_path(@tool) %> |
+        <% end %>
+        <%= link_to 'Back', tools_path %>
+    </div> <!-- links -->
 
-<p>
-  <strong>Less busy:</strong>
-  <%= @tool.less_busy %>
-</p>
-
-<p>
-  <strong>Less stressed:</strong>
-  <%= @tool.less_stressed %>
-</p>
-
-<p>
-  <strong>Happier:</strong>
-  <%= @tool.happier %>
-</p>
-
-<p>
-  <strong>More relaxed:</strong>
-  <%= @tool.more_relaxed %>
-</p>
-
-<p>
-  <strong>Less panicked:</strong>
-  <%= @tool.less_panicked %>
-</p>
-
-<p>
-  <strong>More motivated:</strong>
-  <%= @tool.more_motivated %>
-</p>
-
-<p>
-  <strong>Less worried:</strong>
-  <%= @tool.less_worried %>
-</p>
-
-<p>
-  <strong>More organized:</strong>
-  <%= @tool.more_organized %>
-</p>
-
-<p>
-  <strong>Other:</strong>
-  <%= @tool.other %>
-</p>
-
-<p>
-  <strong>Subscribers only:</strong>
-  <%= @tool.subscribers_only %>
-</p>
-
-<p>
-  <strong>Find by Name:</strong>
-  <%= @tool.find_by_name %>
-</p>
-
-<%= link_to 'Edit', edit_tool_path(@tool) %> |
-<%= link_to 'Back', tools_path %>
+</div> <!-- container -->

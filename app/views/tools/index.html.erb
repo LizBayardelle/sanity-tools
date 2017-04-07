@@ -1,54 +1,13 @@
 <div class="container">
 
-  <h1>Listing Tools</h1>
+  <h1 class="page-title text-center">Tools</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Subtitle</th>
-        <th>Description</th>
-        <th>Less busy</th>
-        <th>Less stressed</th>
-        <th>Happier</th>
-        <th>More relaxed</th>
-        <th>Less panicked</th>
-        <th>More motivated</th>
-        <th>Less worried</th>
-        <th>More organized</th>
-        <th>Other</th>
-        <th>Subscribers only</th>
-        <th>Find by Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+  <%= render "cards" %>
 
-    <tbody>
-      <% @tools.each do |tool| %>
-        <tr>
-          <td><%= tool.name %></td>
-          <td><%= tool.subtitle %></td>
-          <td><%= tool.description %></td>
-          <td><%= tool.less_busy %></td>
-          <td><%= tool.less_stressed %></td>
-          <td><%= tool.happier %></td>
-          <td><%= tool.more_relaxed %></td>
-          <td><%= tool.less_panicked %></td>
-          <td><%= tool.more_motivated %></td>
-          <td><%= tool.less_worried %></td>
-          <td><%= tool.more_organized %></td>
-          <td><%= tool.other %></td>
-          <td><%= tool.subscribers_only %></td>
-          <td><%= tool.find_by_name %></td>
-          <td><%= link_to 'Show', tool %></td>
-          <td><%= link_to 'Edit', edit_tool_path(tool) %></td>
-          <td><%= link_to 'Destroy', tool, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div  class="links text-center row">
+    <% if current_user && current_user.admin %>
+      <%= link_to 'New Tool', new_tool_path %>
+    <% end %>
+  </div> <!-- links -->
 
-  <br>
-
-  <%= link_to 'New Tool', new_tool_path %>
 </div> <!-- container -->

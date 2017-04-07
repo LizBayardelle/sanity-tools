@@ -1,6 +1,12 @@
-<h1>Editing Tool</h1>
+<div class="container">
+	<h1 class="page-title">Edit Tool</h1>
 
-<%= render 'form' %>
+	<%= render 'form' %>
 
-<%= link_to 'Show', @tool %> |
-<%= link_to 'Back', tools_path %>
+	<div class="links text-center">
+		<%= link_to 'Show', @tool %> |
+		<%= link_to 'Back', tools_path %>
+	</div> <!-- links -->
+
+	<div class="bottom-buffer-clear"></div>
+</div> <!-- container -->
