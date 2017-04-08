@@ -1,3 +1,33 @@
-<div class="tool-container">
-    <h1>TOOL GOES HERE</h1>
-</div>
+<div class="text-center tool-container">
+
+    <h3>Count down from the number you see in incriments of <span class="incrimentOfNumber" id="incrimentOfNumber">7</span>.
+    	<br />Tap the number to see the correct answer.
+    	<br />Repeat as needed.
+	</h3>
+
+    <div class="countdownNumber">
+    	<h1 id="countdownNumber">284</h1>
+	</div>
+
+    <div class="btn" id="resetCountdown">Reset</div>
+
+</div> <!-- tool container -->
+
+<script>
+	var s = document.getElementById('incrimentOfNumber').innerHTML
+	var n = document.getElementById('countdownNumber').innerHTML
+
+document.getElementById("countdownNumber").onclick = function updateNumber(){
+        var s = document.getElementById('incrimentOfNumber').innerHTML
+        var n = document.getElementById('countdownNumber').innerHTML
+        n = n - s;
+        this.innerHTML = n;
+}
+
+	document.getElementById("resetCountdown").onclick = function resetCountdown(){
+		n = Math.floor(Math.random() * 300) + 201;
+		s = Math.floor(Math.random() * 3) + 6;
+		document.getElementById("countdownNumber").innerHTML = n;
+		document.getElementById("incrimentOfNumber").innerHTML = s;
+	}
+</script>
