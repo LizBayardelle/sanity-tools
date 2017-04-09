@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "Tools", tools_path %></li>
-                <li><a href="/contact">Recommend a Tool</a></li>
+                <li><%= link_to "Recommend a Tool", new_recommendation_path %></li>
                 <li><a href="/about-us">About Us</a></li>
                 <% if current_user %>
                 	<li><%= link_to "Dashboard", user_path(current_user) %></li>

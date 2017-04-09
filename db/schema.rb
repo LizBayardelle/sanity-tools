@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407174308) do
+ActiveRecord::Schema.define(version: 20170408195218) do
+
+  create_table "recommendations", force: :cascade do |t|
+    t.string   "tool_name"
+    t.text     "description"
+    t.integer  "user_id"
+    t.boolean  "archived"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "recommendations", ["user_id"], name: "index_recommendations_on_user_id"
 
   create_table "tools", force: :cascade do |t|
     t.string   "name"

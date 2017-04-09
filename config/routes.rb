@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :recommendations
+  post "users/:id/archive" => "users#archive", as: "archive"
+  post "users/:id/unarchive" => "users#unarchive", as: "unarchive"
+
   resources :tools
   get 'users/show'
 

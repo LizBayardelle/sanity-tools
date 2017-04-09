@@ -57,7 +57,7 @@ label { text-transform: capitalize; }
 body { font-family: $font-sans; color: $blue-dark }
 h1 { font-family: $font-serif; text-shadow: $text-shadow; font-size: 50px }
 .page-title { padding-top: 50px }
-.linkish { cursor: pointer; text-decoration: underline; color: $blue-light; }
+.linkish { cursor: pointer; color: $blue-light; }
 strong { font-weight: 900 }
 .border-bottom { border-bottom: 1px solid $blue-green }
 .no-dec { text-decoration: none; color: $blue-dark }
@@ -68,6 +68,10 @@ a { color: $blue-light; }
 .bottom-buffer-clear { width: 100%; height: 50px; }
 .bottom-buffer-white { width: 100%; height: 50px; background-color: white}
 hr { border-width: 1px; border-color: $blue-green }
+th { text-align: center }
+td { padding: 5px 10px 5px 10px; border: solid thin $grey-light; }
+table { width: 100%; }
+
 
 .non-footer { min-height: calc(100vh - 250px) }
 
