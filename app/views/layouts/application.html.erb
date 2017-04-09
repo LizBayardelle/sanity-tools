@@ -20,7 +20,7 @@
 <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
-        	<%= link_to "Sanity Tools", root_path, class:"navbar-brand" %>
+        	<%= link_to "Sanity Tools", root_path, class: "navbar-brand text-shadow" %>
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
             </button>
         </div>
@@ -29,7 +29,7 @@
                 <li><%= link_to "Home", root_path %></li>
                 <li><%= link_to "Tools", tools_path %></li>
                 <li><%= link_to "Recommend a Tool", new_recommendation_path %></li>
-                <li><a href="/about-us">About Us</a></li>
+                <li><%= link_to "About Us", home_aboutus_path %></li>
                 <% if current_user %>
                 	<li><%= link_to "Dashboard", user_path(current_user) %></li>
                 <% else %>

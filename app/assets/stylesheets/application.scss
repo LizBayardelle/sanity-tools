@@ -41,6 +41,8 @@ $text-shadow: 1px 2px 2px #4DCCBD;
 
 .color-red { color: $color-red; }
 .color-green { color: $blue-green; }
+.font-serif { font-family: $font-serif; }
+.font-sans { font-family: $font-sans; }
 
 
 
@@ -71,6 +73,7 @@ hr { border-width: 1px; border-color: $blue-green }
 th { text-align: center }
 td { padding: 5px 10px 5px 10px; border: solid thin $grey-light; }
 table { width: 100%; }
+.text-shadow { text-shadow: $text-shadow; }
 
 
 .non-footer { min-height: calc(100vh - 250px) }
@@ -323,6 +326,8 @@ Background Images
 
 .image-container img {
 	max-width: 100%;
+	position: absolute;
+	bottom: 0;
 }
 
 @media screen and (min-width: 1100px) {
@@ -342,6 +347,7 @@ Background Images
 		display: inline-block;
 		height: 400px;
 		width: auto;
+		position: relative;
 	}
 }
 
