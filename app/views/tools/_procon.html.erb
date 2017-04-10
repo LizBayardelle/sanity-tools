@@ -1,0 +1,86 @@
+<div class="text-center tool-container">
+
+	<div class="row">
+	    <div class="col-sm-6">
+	    	<h2>Pros</h2>
+	    	<p>The Good Stuff</p>
+	    	<form id="proForm" onkeypress="return event.keyCode != 13;">
+	    		<input class="form-control text-left pro-con-input" id="proInput" placeholder="Add New Benefit" />
+	    	<div onclick="addPro()" class="btn pro-con-btn">Add</div>
+    		</form>
+	    	<h3 class="text-left">Benefits</h3>
+	    	<ul class="text-left" id="proList">
+	    	</ul>
+	    </div> <!-- pros -->
+
+	    <div class="col-sm-6">
+	    	<h2>Cons</h2>
+	    	<p>The Bad Stuff</p>
+	    	<form id="conForm" onkeypress="return event.keyCode != 13;">
+		    	<input class="form-control text-left pro-con-input" placeholder="Add New Cost" id="conInput" />
+	    	<div onclick="addCon()" class="btn pro-con-btn">Add</div>
+	    	</form>
+	    	<h3 class="text-left">Costs</h3>
+	    	<ul class="text-left" id="conList">
+	    	</ul>
+	    </div> <!-- cons -->
+	</div>
+
+	<div class="row">
+		<hr class="col-xs-6 col-xs-push-3" />
+	</div>
+
+    <div class="row">
+    	<p id="showVerdict" class="linkish">Show Verdict</p>
+    	<p id="hideVerdict" class="linkish hidden">Hide Verdict</p>
+    	<div id="verdict" class="hidden">
+	    	<h1 id="verdictYes">Do It!</h1>
+    		<h1 id="verdictNo">Don't Do It!</h1>
+		</div> <!-- verdict -->
+	</div> <!-- verdict row -->
+
+</div> <!-- tool container -->
+
+<script>
+	$(document).ready(function(){
+		$("#showVerdict").click(function(){
+			$(this).addClass("hidden");
+			$("#hideVerdict").removeClass("hidden");
+			$("#verdict").removeClass("hidden");
+		});
+		$("#hideVerdict").click(function(){
+			$(this).addClass("hidden");
+			$("#showVerdict").removeClass("hidden");
+			$("#verdict").addClass("hidden");
+		})
+	});
+
+	var proArray = [];
+	function addPro() {
+		proArray.push(document.getElementById("proInput").value);
+		document.getElementById("proForm").reset();
+		console.log(proArray);
+	  	for (var i = 0; i < proArray.length; i++) {
+	       	newItem = "<li>" + proArray[i] + "</li>";
+	  	}
+       	document.getElementById("proList").innerHTML += newItem;
+	}
+
+	var conArray = [];
+	function addCon() {
+		conArray.push(document.getElementById("conInput").value);
+		document.getElementById("conForm").reset();
+		console.log(conArray);
+	  	for (var i = 0; i < conArray.length; i++) {
+	       	newItem = "<li>" + conArray[i] + "</li>";
+	  	}
+       	document.getElementById("conList").innerHTML += newItem;
+	}
+</script>
+
+
+
+
+
+
+

@@ -1,24 +1,26 @@
 <% @tools.each do |tool| %>
-	<div class="card col-sm-4 col-md-3 text-center">
-		<h1><%= tool.name %></h1>
-		<h2><%= tool.subtitle %></h2>
-		<p class="text-left"><%= tool.description %></p>
-		<p class="text-left"><strong>Good for 
-			<% if tool.less_stressed %>Reducing Stress, <% end %>
-			<% if tool.happier %>Increasing Happiness, <% end %>
-			<% if tool.more_relaxed %>Relaxing, <% end %>
-			<% if tool.less_panicked %>Easing Panic, <% end %>
-			<% if tool.more_motivated %>Motivation, <% end %>
-			<% if tool.less_worried %>Soothing Worry, <% end %>
-			<% if tool.more_organized %>Organization, <% end %>
-			<% if tool.subscribers_only %>
-				<span class="color-red">Subscribers Only</span>
-			<% else %>
-				<span class="color-green">Free</span>
-			<% end %>
-		</strong></p>
-		<div class="btn-div">
-			<%= link_to "Pick Me!", tool_path(tool), class: "btn no-dec" %>
-		</div> <!-- button -->
-	</div> <!-- card -->
+	<div class="col-sm-6 col-md-4 text-center">
+		<div class="card">
+			<h1><%= tool.name %></h1>
+			<h2><%= tool.subtitle %></h2>
+			<p class="text-left"><%= tool.description %></p>
+			<p class="text-left"><strong>Good for 
+				<% if tool.less_stressed %>Reducing Stress, <% end %>
+				<% if tool.happier %>Increasing Happiness, <% end %>
+				<% if tool.more_relaxed %>Relaxing, <% end %>
+				<% if tool.less_panicked %>Easing Panic, <% end %>
+				<% if tool.more_motivated %>Motivation, <% end %>
+				<% if tool.less_worried %>Soothing Worry, <% end %>
+				<% if tool.more_organized %>Organization, <% end %>
+				<% if tool.subscribers_only %>
+					<span class="color-red">Subscribers Only</span>
+				<% else %>
+					<span class="color-green">Free</span>
+				<% end %>
+			</strong></p>
+			<div class="btn-div">
+				<%= link_to "Pick Me!", tool_path(tool), class: "btn no-dec" %>
+			</div> <!-- button -->
+		</div> <!-- card -->
+	</div> <!-- col -->
 <% end %>

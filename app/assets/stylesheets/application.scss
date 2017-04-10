@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-slider
  */
 
 @import "bootstrap-sprockets";
@@ -406,6 +407,7 @@ Tools
 ==============================================
 */
 
+/* Countdown */
 .bubble {
 	background-color: $blue-light;
 	border-radius: 15px;
@@ -437,6 +439,18 @@ Tools
 	font-size: 150px !important;
 	margin: 40px 0 40px 0;
 	padding: 0px;
+}
+
+/* Pro Con List */
+.pro-con-input {
+	width: 70%;
+	display: inline-block;
+	height: 43px;
+}
+
+.pro-con-btn {
+	display: inline-block;
+	margin-left: 10px;
 }
 
 

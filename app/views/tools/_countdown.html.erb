@@ -17,12 +17,12 @@
 	var s = document.getElementById('incrimentOfNumber').innerHTML
 	var n = document.getElementById('countdownNumber').innerHTML
 
-document.getElementById("countdownNumber").onclick = function updateNumber(){
-        var s = document.getElementById('incrimentOfNumber').innerHTML
-        var n = document.getElementById('countdownNumber').innerHTML
-        n = n - s;
-        this.innerHTML = n;
-}
+	document.getElementById("countdownNumber").onclick = function updateNumber(){
+	        var s = document.getElementById('incrimentOfNumber').innerHTML
+	        var n = document.getElementById('countdownNumber').innerHTML
+	        n = n - s;
+	        this.innerHTML = n;
+	}
 
 	document.getElementById("resetCountdown").onclick = function resetCountdown(){
 		n = Math.floor(Math.random() * 300) + 201;
