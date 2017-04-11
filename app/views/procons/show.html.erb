@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @procon.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @procon.notes %>
+</p>
+
+<p>
+  <strong>Proarray:</strong>
+  <%= @procon.proarray %>
+</p>
+
+<p>
+  <strong>Conarray:</strong>
+  <%= @procon.conarray %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @procon.user %>
+</p>
+
+<%= link_to 'Edit', edit_procon_path(@procon) %> |
+<%= link_to 'Back', procons_path %>

@@ -5,6 +5,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def subscriber_only 
+    unless current_user && current_user.subscriber
+      redirect_to root_path
+      flash[:notice] = "You have to be a member to do that!"
+    end
+  end
+
   def admin_only
   	unless current_user && current_user.admin
   		redirect_to root_path

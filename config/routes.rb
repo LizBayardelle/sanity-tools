@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :procons
   resources :recommendations
   post "users/:id/archive" => "users#archive", as: "archive"
   post "users/:id/unarchive" => "users#unarchive", as: "unarchive"

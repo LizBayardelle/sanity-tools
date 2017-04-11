@@ -2,12 +2,18 @@
 
   <h1 class="page-title text-center">Tools</h1>
 
-  <%= render "cards" %>
+  <div class="row">
+	  <%= render "cards" %>
+  </div>
+
+  <div class="bottom-buffer-clear"></div>
 
   <div  class="links text-center row">
     <% if current_user && current_user.admin %>
       <%= link_to 'New Tool', new_tool_path %>
     <% end %>
   </div> <!-- links -->
+
+  <div class="bottom-buffer-clear"></div>
 
 </div> <!-- container -->

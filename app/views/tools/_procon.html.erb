@@ -1,30 +1,68 @@
 <div class="text-center tool-container">
 
-	<div class="row">
-	    <div class="col-sm-6">
-	    	<h2>Pros</h2>
-	    	<p>The Good Stuff</p>
-	    	<form id="proForm" onkeypress="return event.keyCode != 13;">
-	    		<input class="form-control text-left pro-con-input" id="proInput" placeholder="Add New Benefit" />
-	    	<div onclick="addPro()" class="btn pro-con-btn">Add</div>
-    		</form>
-	    	<h3 class="text-left">Benefits</h3>
-	    	<ul class="text-left" id="proList">
-	    	</ul>
-	    </div> <!-- pros -->
+	<div class="row save-lists">
+		<h4 class="text-center saveHeader linkish">Want to save your lists for later?</h4>
+		<div class="saveDiv hidden">
+			<%= simple_form_for(@procon) do |f| %>
+			  	<%= f.error_notification %>
 
+			  	<div class="form-inputs text-left">
+			  		<div class="form-group">
+				    	<%= f.label "Create a Name for Your Lists" %>
+				    	<%= f.text_field :name, class: "form-control" %>
+			    	</div> <!-- form group -->
+			    	<div class="form-group">
+				    	<%= f.label :notes %>
+				    	<%= f.text_area :notes, class: "form-control" %>
+			    	</div> <!-- form group -->
+
+			    	<%= f.input :proarray, id: "proArrayField" %>
+			    	<%= f.input :conarray, id: "conArrayField" %>
+			  	</div>
+
+			  	<div class="form-actions">
+			    	<%= f.button :submit, "Save Lists" %>
+			  	</div>
+			<% end %>
+
+			<div class="row">
+				<hr class="col-xs-6 col-xs-push-3" />
+			</div>
+		</div> <!-- save div -->
+	</div> <!-- save lists row -->
+
+	<div class="row procon-inputs">
 	    <div class="col-sm-6">
-	    	<h2>Cons</h2>
-	    	<p>The Bad Stuff</p>
-	    	<form id="conForm" onkeypress="return event.keyCode != 13;">
-		    	<input class="form-control text-left pro-con-input" placeholder="Add New Cost" id="conInput" />
-	    	<div onclick="addCon()" class="btn pro-con-btn">Add</div>
-	    	</form>
-	    	<h3 class="text-left">Costs</h3>
-	    	<ul class="text-left" id="conList">
-	    	</ul>
-	    </div> <!-- cons -->
+		    <h2>Pros</h2>
+		    <p>The Good Stuff</p>
+		    <form id="proForm" onkeypress="return event.keyCode != 13;">
+		        <input class="form-control text-left pro-con-input" id="proInput" placeholder="Add New Benefit"/>
+		        <div onclick="newAdd('pro')" class="btn pro-con-btn">Add</div>
+		    </form>
+		</div> <!-- pros -->
+
+		<div class="col-sm-6">
+		    <h2>Cons</h2>
+		    <p>The Bad Stuff</p>
+		    <form id="conForm" onkeypress="return event.keyCode != 13;">
+		        <input class="form-control text-left pro-con-input" id="conInput" placeholder="Add New Benefit"/>
+		        <div onclick="newAdd('con')" class="btn pro-con-btn">Add</div>
+		    </form>
+		</div> <!-- cons -->
 	</div>
+
+	<div class="row procon-lists">
+	    <div class="col-sm-6">
+		    <h3 class="text-left">Benefits</h3>
+		    <ul class="text-left" id="proList"></ul>
+		</div> <!-- pros -->
+
+		<div class="col-sm-6">
+		    <h3 class="text-left">Costs</h3>
+		    <ul class="text-left" id="conList"></ul>
+		</div> <!-- cons -->
+	</div>
+
 
 	<div class="row">
 		<hr class="col-xs-6 col-xs-push-3" />
@@ -38,6 +76,8 @@
     		<h1 id="verdictNo">Don't Do It!</h1>
 		</div> <!-- verdict -->
 	</div> <!-- verdict row -->
+
+
 
 </div> <!-- tool container -->
 
@@ -53,29 +93,67 @@
 			$("#showVerdict").removeClass("hidden");
 			$("#verdict").addClass("hidden");
 		})
+		$(".saveHeader").click(function(){
+			$(".saveDiv").toggleClass("hidden");
+		})
 	});
 
 	var proArray = [];
-	function addPro() {
-		proArray.push(document.getElementById("proInput").value);
-		document.getElementById("proForm").reset();
-		console.log(proArray);
-	  	for (var i = 0; i < proArray.length; i++) {
-	       	newItem = "<li>" + proArray[i] + "</li>";
-	  	}
-       	document.getElementById("proList").innerHTML += newItem;
+	var conArray = [];
+	function newAdd(listIdPrefix) {
+	    var val = document.getElementById(listIdPrefix + "Input").value.trim();
+	    document.getElementById(listIdPrefix + "Form").reset();
+	    if (val.length == 0) {
+	        return;
+	    }
+	    var arr;
+	    if (document.getElementById(listIdPrefix + 'Input' + val) == null) {
+	        if (listIdPrefix == 'pro') {
+	            proArray.push({id: val, slider: null});
+	            arr = proArray;
+	        } else {
+	            conArray.push({id: val, slider: null});
+	            arr = conArray;
+	        }
+	    } else {
+	        return;
+	    }
+	    for (var i = 0; i < arr.length; i++) {
+	        var ele = document.getElementById(listIdPrefix + 'Input' + arr[i].id);
+	        if (ele == null) {
+	            var newItem = "<li><p>" + arr[i].id + "</p><input class='bootstrap-slider' type='text' value='' id='" + listIdPrefix + "Input" +
+	                    arr[i].id + "' data-slider-id='SID" + listIdPrefix+  "Input" + arr[i].id
+	                    + "' data-slider-min='0' data-slider-max='10' data-slider-value='5'/></li>";
+	            document.getElementById(listIdPrefix + "List").innerHTML += newItem;
+	            arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id, {
+	                formatter: function (value) {
+	                    return 'Current value: ' + value;
+	                }
+	            });
+	        } else {
+	            (function (i, arr) {
+	                setTimeout(function () {
+	                    var val = arr[i].slider.getValue();
+	                    arr[i].slider.destroy();
+	                    document.getElementById('SID' + listIdPrefix + 'Input' + arr[i].id).remove();
+	                    arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id, {
+	                        formatter: function (value) {
+	                            return 'Current value: ' + value;
+	                        }
+	                    });
+	                    arr[i].slider.setValue(val);
+	                }, 100);
+	            })(i, arr);
+	        }
+	    }
+	    var proArrayAsString = JSON.stringify(proArray);
+	    var conArrayAsString = JSON.stringify(conArray);
+	    console.log("Pro Array: " + proArrayAsString);
+	    console.log("Con Array: " + conArrayAsString);
+       	document.getElementById("procon_proarray").value = proArrayAsString;
+       	document.getElementById("procon_conarray").value = conArrayAsString;
 	}
 
-	var conArray = [];
-	function addCon() {
-		conArray.push(document.getElementById("conInput").value);
-		document.getElementById("conForm").reset();
-		console.log(conArray);
-	  	for (var i = 0; i < conArray.length; i++) {
-	       	newItem = "<li>" + conArray[i] + "</li>";
-	  	}
-       	document.getElementById("conList").innerHTML += newItem;
-	}
 </script>
 
 

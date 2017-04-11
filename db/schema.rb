@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409152155) do
+ActiveRecord::Schema.define(version: 20170411171402) do
+
+  create_table "procons", force: :cascade do |t|
+    t.string   "name"
+    t.text     "notes"
+    t.string   "proarray"
+    t.string   "conarray"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "procons", ["user_id"], name: "index_procons_on_user_id"
 
   create_table "recommendations", force: :cascade do |t|
     t.string   "tool_name"
@@ -69,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170409152155) do
     t.boolean  "other",                  default: false
     t.boolean  "opt_in",                 default: false
     t.boolean  "admin",                  default: false
+    t.boolean  "subscriber",             default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
