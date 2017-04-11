@@ -122,10 +122,10 @@
 	        var ele = document.getElementById(listIdPrefix + 'Input' + arr[i].id);
 	        if (ele == null) {
 	            var newItem = "<li><p>" + arr[i].id + "</p><input class='bootstrap-slider' type='text' value='' id='" + listIdPrefix + "Input" +
-	                    arr[i].id + "' data-slider-id='SID" + listIdPrefix+  "Input" + arr[i].id
+	                    arr[i].id + "' data-slider-id='SID" + listIdPrefix + "Input" + arr[i].id
 	                    + "' data-slider-min='0' data-slider-max='10' data-slider-value='5'/></li>";
 	            document.getElementById(listIdPrefix + "List").innerHTML += newItem;
-	            arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id, {
+	            arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id.replace(/@/g, '\\@').replace(/\?/g, '\\?').replace(/\./g, '\\.'), {
 	                formatter: function (value) {
 	                    return 'Current value: ' + value;
 	                }
@@ -136,7 +136,7 @@
 	                    var val = arr[i].slider.getValue();
 	                    arr[i].slider.destroy();
 	                    document.getElementById('SID' + listIdPrefix + 'Input' + arr[i].id).remove();
-	                    arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id, {
+	                    arr[i].slider = new Slider('#' + listIdPrefix + 'Input' + arr[i].id.replace(/@/g, '\\@').replace(/\?/g, '\\?').replace(/\./g, '\\.'), {
 	                        formatter: function (value) {
 	                            return 'Current value: ' + value;
 	                        }
@@ -146,13 +146,14 @@
 	            })(i, arr);
 	        }
 	    }
-	    var proArrayAsString = JSON.stringify(proArray);
-	    var conArrayAsString = JSON.stringify(conArray);
-	    console.log("Pro Array: " + proArrayAsString);
-	    console.log("Con Array: " + conArrayAsString);
-       	document.getElementById("procon_proarray").value = proArrayAsString;
-       	document.getElementById("procon_conarray").value = conArrayAsString;
 	}
+	//     var proArrayAsString = JSON.stringify(proArray);
+	//     var conArrayAsString = JSON.stringify(conArray);
+	//     console.log("Pro Array: " + proArrayAsString);
+	//     console.log("Con Array: " + conArrayAsString);
+ //       	document.getElementById("procon_proarray").value = proArrayAsString;
+ //       	document.getElementById("procon_conarray").value = conArrayAsString;
+	// }
 
 </script>
 
